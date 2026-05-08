@@ -385,8 +385,10 @@ jobs:
     steps:
       - name: Resolve target version
         id: version
+        env:
+          BASELINE_VERSION: ${{ inputs.baseline_version }}
         run: |
-          echo "version=${{ inputs.baseline_version }}" >> $GITHUB_OUTPUT
+          echo "version=$BASELINE_VERSION" >> $GITHUB_OUTPUT
 
       - name: Checkout code
         uses: actions/checkout@v4
